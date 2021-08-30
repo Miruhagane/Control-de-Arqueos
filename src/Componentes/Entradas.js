@@ -322,11 +322,8 @@ function Tabla() {
                   value={Empresa}
                   onChange={handleChange}
                 >
-                  {Empresas.map((object, index) => (
-                    <option value={object.intIdEmpresa}>
-                      {object.txtEmpresa}
-                    </option>
-                  ))}
+                  <MenuItem value={1}>Strategias Cancun</MenuItem>
+                  <MenuItem value={4}>Master Exchange</MenuItem>
                 </Select>
               </FormControl>
             </div>
