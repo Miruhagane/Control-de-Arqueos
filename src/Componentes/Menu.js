@@ -99,7 +99,7 @@ function Menu() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Boveda
+            Arqueos
           </Typography>
           <div>
             <IconButton
