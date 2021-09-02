@@ -57,15 +57,27 @@ function Menu() {
   };
 
   const unidades = () => {
-    redirrecionar.push("/Unidades");
+    redirrecionar.push("/arqueo_Unidades");
   };
 
   const Entradas = () => {
-    redirrecionar.push("/Entradas");
+    redirrecionar.push("/Entrada_unidades");
   };
 
   const Salidas = () => {
-    redirrecionar.push("/Salidas");
+    redirrecionar.push("/Salida_unidades");
+  };
+
+  const arqueoC = () => {
+    redirrecionar.push("/arqueo_centenas");
+  };
+
+  const EntradasC = () => {
+    redirrecionar.push("/Entrada_Centenas");
+  };
+
+  const SalidasC = () => {
+    redirrecionar.push("/Salida_Centenas");
   };
 
   const [auth, setAuth] = useState(true);
@@ -152,21 +164,42 @@ function Menu() {
             <ListItemIcon>
               <PostAddIcon onClick={unidades} />
             </ListItemIcon>
-            <ListItemText onClick={unidades} primary="Unidades" />
+            <ListItemText onClick={unidades} primary="Arqueo de Unidades" />
           </ListItem>
 
           <ListItem button>
             <ListItemIcon>
               <PostAddIcon onClick={Entradas} />
             </ListItemIcon>
-            <ListItemText onClick={Entradas} primary="Entradas" />
+            <ListItemText onClick={Entradas} primary="Entradas de unidades" />
           </ListItem>
 
           <ListItem button>
             <ListItemIcon>
               <PostAddIcon onClick={Salidas} />
             </ListItemIcon>
-            <ListItemText onClick={Salidas} primary="Salidas" />
+            <ListItemText onClick={Salidas} primary="Salidas de unidades" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon>
+              <PostAddIcon onClick={arqueoC} />
+            </ListItemIcon>
+            <ListItemText onClick={arqueoC} primary="Arqueo de Centenas" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon>
+              <PostAddIcon onClick={EntradasC} />
+            </ListItemIcon>
+            <ListItemText onClick={EntradasC} primary="Entradas de Centenas" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon>
+              <PostAddIcon onClick={SalidasC} />
+            </ListItemIcon>
+            <ListItemText onClick={SalidasC} primary="Salidas de Centenas" />
           </ListItem>
         </List>
       </Drawer>

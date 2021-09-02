@@ -5,9 +5,34 @@ import Button from "@material-ui/core/Button";
 
 import TextField from "@material-ui/core/TextField";
 
+import Snackbar from "@material-ui/core/Snackbar";
+import { Alert, AlertTitle } from "@material-ui/lab";
+
 let api = "https://syscriptoapi.azurewebsites.net/api/";
 
 function Arqueounidades(props) {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+
+    setTimeout(
+      function () {
+        window.location.reload();
+      },
+      4000,
+      "JavaScript"
+    );
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   let lngIdRegistro = props.lngregistro;
   let status = props.status;
 
@@ -123,8 +148,6 @@ function Arqueounidades(props) {
     A10: "",
     A11: "",
   });
-
-  const [registro, setregistro] = useState(0);
 
   const [totales, settotales] = useState({
     usd: "",
@@ -263,9 +286,7 @@ function Arqueounidades(props) {
             lngIdRegistro: lngIdRegistro,
           },
         ])
-        .then(function (respuesta) {
-          console.log(respuesta);
-        })
+        .then(function (respuesta) {})
         .then(function (error) {
           console.log(error);
         });
@@ -383,9 +404,7 @@ function Arqueounidades(props) {
             lngIdRegistro: lngIdRegistro,
           },
         ])
-        .then(function (respuesta) {
-          console.log(respuesta);
-        })
+        .then(function (respuesta) {})
         .then(function (error) {
           console.log(error);
         });
@@ -503,9 +522,7 @@ function Arqueounidades(props) {
             lngIdRegistro: lngIdRegistro,
           },
         ])
-        .then(function (respuesta) {
-          console.log(respuesta);
-        })
+        .then(function (respuesta) {})
         .then(function (error) {
           console.log(error);
         });
@@ -743,9 +760,7 @@ function Arqueounidades(props) {
             lngIdRegistro: lngIdRegistro,
           },
         ])
-        .then(function (respuesta) {
-          console.log(respuesta);
-        })
+        .then(function (respuesta) {})
         .then(function (error) {
           console.log(error);
         });
@@ -863,9 +878,7 @@ function Arqueounidades(props) {
             lngIdRegistro: lngIdRegistro,
           },
         ])
-        .then(function (respuesta) {
-          console.log(respuesta);
-        })
+        .then(function (respuesta) {})
         .then(function (error) {
           console.log(error);
         });
@@ -983,9 +996,7 @@ function Arqueounidades(props) {
             lngIdRegistro: lngIdRegistro,
           },
         ])
-        .then(function (respuesta) {
-          console.log(respuesta);
-        })
+        .then(function (respuesta) {})
         .then(function (error) {
           console.log(error);
         });
@@ -1103,12 +1114,12 @@ function Arqueounidades(props) {
             lngIdRegistro: lngIdRegistro,
           },
         ])
-        .then(function (respuesta) {
-          console.log(respuesta);
-        })
+        .then(function (respuesta) {})
         .then(function (error) {
           console.log(error);
         });
+
+      handleClick();
     } else if (status === 1) {
     }
   };
@@ -1127,10 +1138,7 @@ function Arqueounidades(props) {
     if (status === 2) {
       axios
         .post(
-          api +
-            "TbArqueoUnidades/Obtenervalores?lngidregistro=" +
-            lngIdRegistro +
-            ""
+          api + "TbArqueoUnidades/Sumatoria?lngidregistro=" + lngIdRegistro + ""
         )
         .then(function (response) {
           drt(response.data);
@@ -2838,6 +2846,12 @@ function Arqueounidades(props) {
           </form>
         </div>
       </div>
+
+      <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+        <Alert variant="filled" severity="success">
+          Los datos han sido guardados
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

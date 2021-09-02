@@ -75,12 +75,8 @@ function Arqueo() {
     <div>
       <Menu />
       <Grid container className={classes.Image}>
-        <Grid item xs={10}>
+        <Grid item xs={12}>
           <Arquecentenas lngregistro={lngregistro} status={intstatus} />
-        </Grid>
-
-        <Grid item xs={2}>
-          <Arqueoxmoendaxcentena lngregistro={lngregistro} status={intstatus} />
         </Grid>
       </Grid>
     </div>

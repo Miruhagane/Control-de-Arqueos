@@ -70,12 +70,8 @@ function Padreunidades() {
     <div>
       <Menu />
       <Grid container className={classes.Image}>
-        <Grid item xs={10}>
+        <Grid item xs={12}>
           <Arqueounidades lngregistro={lngregistro} status={intstatus} />
-        </Grid>
-
-        <Grid item xs={2}>
-          <ArqueoXmoendaXunides lngregistro={lngregistro} status={intstatus} />
         </Grid>
       </Grid>
     </div>

@@ -1,7 +1,8 @@
 import { React, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-
+import Typography from "@material-ui/core/Typography";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Logo from "../images/systrackLogo.jpg";
@@ -31,6 +32,14 @@ const useStyles = makeStyles({
     width: "100%",
     marginTop: "2rem",
   },
+  Avatar: {
+    marginLeft: "45%",
+    marginTop: "5rem",
+  },
+  titulo: {
+    marginLeft: "14%",
+    marginTop: "2rem",
+  },
 });
 
 function Login() {
@@ -49,6 +58,7 @@ function Login() {
 }
 
 function Formulario() {
+  const classes = useStyles();
   let redirrecionar = useHistory();
 
   const [user, setuser] = useState({
@@ -100,7 +110,12 @@ function Formulario() {
       <Card>
         <CardContent>
           <Grid item xs={12}>
-            <Avatar>U</Avatar>
+            <Avatar className={classes.Avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography className={classes.titulo} component="h1" variant="h5">
+              Sistema De Control De Arqueos
+            </Typography>
           </Grid>
           <Grid item xs={12}>
             <TextField
@@ -119,7 +134,7 @@ function Formulario() {
             <TextField
               onChange={handlechecks}
               name="password"
-              type="text"
+              type="password"
               label="Contraseña"
               margin="normal"
               required

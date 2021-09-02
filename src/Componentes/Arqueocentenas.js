@@ -5,7 +5,32 @@ import Button from "@material-ui/core/Button";
 
 import TextField from "@material-ui/core/TextField";
 
+import Snackbar from "@material-ui/core/Snackbar";
+import { Alert, AlertTitle } from "@material-ui/lab";
+
 function Arquecentenas(props) {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+
+    setTimeout(
+      function () {
+        window.location.reload();
+      },
+      4000,
+      "JavaScript"
+    );
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   let lngIdRegistro = props.lngregistro;
   let status = props.status;
 
@@ -1055,118 +1080,121 @@ function Arquecentenas(props) {
   const obtregistro = () => {
     if (status === 2) {
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Editar", [
-          {
-            LngIdArqueoCentenas: usdarray[0].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 1,
-            DblCantidad: usd.D1 == null ? usdarray[0].value : usd.D1,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[1].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 2,
-            DblCantidad: usd.D2 == null ? usdarray[1].value : usd.D2,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[2].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 3,
-            DblCantidad: usd.D3 == null ? usdarray[2].value : usd.D3,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[3].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 4,
-            DblCantidad: usd.D4 == null ? usdarray[3].value : usd.D4,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[4].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 5,
-            DblCantidad: usd.D5 == null ? usdarray[4].value : usd.D5,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[5].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 6,
-            DblCantidad: usd.D6 == null ? usdarray[5].value : usd.D6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[6].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 7,
-            DblCantidad: usd.D7 == null ? usdarray[6].value : usd.D7,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[7].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 8,
-            DblCantidad: usd.D8 == null ? usdarray[7].value : usd.D8,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[8].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 9,
-            DblCantidad: usd.D9 == null ? usdarray[8].value : usd.D9,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[9].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 10,
-            DblCantidad: usd.D10 == null ? usdarray[9].value : usd.D10,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: usdarray[10].id,
-            intIdMoneda: 1,
-            intIdDenominacion: 11,
-            DblCantidad: usd.D11 == null ? usdarray[10].value : usd.D11,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-        ])
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Editar",
+          [
+            {
+              LngIdArqueoCentenas: usdarray[0].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 1,
+              DblCantidad: usd.D1 == null ? usdarray[0].value : usd.D1,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[1].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 2,
+              DblCantidad: usd.D2 == null ? usdarray[1].value : usd.D2,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[2].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 3,
+              DblCantidad: usd.D3 == null ? usdarray[2].value : usd.D3,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[3].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 4,
+              DblCantidad: usd.D4 == null ? usdarray[3].value : usd.D4,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[4].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 5,
+              DblCantidad: usd.D5 == null ? usdarray[4].value : usd.D5,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[5].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 6,
+              DblCantidad: usd.D6 == null ? usdarray[5].value : usd.D6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[6].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 7,
+              DblCantidad: usd.D7 == null ? usdarray[6].value : usd.D7,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[7].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 8,
+              DblCantidad: usd.D8 == null ? usdarray[7].value : usd.D8,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[8].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 9,
+              DblCantidad: usd.D9 == null ? usdarray[8].value : usd.D9,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[9].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 10,
+              DblCantidad: usd.D10 == null ? usdarray[9].value : usd.D10,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: usdarray[10].id,
+              intIdMoneda: 1,
+              intIdDenominacion: 11,
+              DblCantidad: usd.D11 == null ? usdarray[10].value : usd.D11,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+          ]
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -1175,118 +1203,121 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Editar", [
-          {
-            LngIdArqueoCentenas: mxnarray[0].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 1,
-            DblCantidad: mxn.M1 == null ? mxnarray[0].value : mxn.M1,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[1].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 2,
-            DblCantidad: mxn.M2 == null ? mxnarray[1].value : mxn.M2,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[2].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 3,
-            DblCantidad: mxn.M3 == null ? mxnarray[2].value : mxn.M3,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[3].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 4,
-            DblCantidad: mxn.M4 == null ? mxnarray[3].value : mxn.M4,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[4].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 5,
-            DblCantidad: mxn.M5 == null ? mxnarray[4].value : mxn.M5,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[5].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 6,
-            DblCantidad: mxn.M6 == null ? mxnarray[5].value : mxn.M6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[6].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 7,
-            DblCantidad: mxn.M7 == null ? mxnarray[6].value : mxn.M7,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[7].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 8,
-            DblCantidad: mxn.M8 == null ? mxnarray[7].value : mxn.M8,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[8].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 9,
-            DblCantidad: mxn.M9 == null ? mxnarray[8].value : mxn.M9,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[9].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 10,
-            DblCantidad: mxn.M10 == null ? mxnarray[9].value : mxn.M10,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: mxnarray[10].id,
-            intIdMoneda: 2,
-            intIdDenominacion: 11,
-            DblCantidad: mxn.M11 == null ? mxnarray[10].value : mxn.M11,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-        ])
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Editar",
+          [
+            {
+              LngIdArqueoCentenas: mxnarray[0].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 1,
+              DblCantidad: mxn.M1 == null ? mxnarray[0].value : mxn.M1,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[1].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 2,
+              DblCantidad: mxn.M2 == null ? mxnarray[1].value : mxn.M2,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[2].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 3,
+              DblCantidad: mxn.M3 == null ? mxnarray[2].value : mxn.M3,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[3].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 4,
+              DblCantidad: mxn.M4 == null ? mxnarray[3].value : mxn.M4,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[4].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 5,
+              DblCantidad: mxn.M5 == null ? mxnarray[4].value : mxn.M5,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[5].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 6,
+              DblCantidad: mxn.M6 == null ? mxnarray[5].value : mxn.M6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[6].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 7,
+              DblCantidad: mxn.M7 == null ? mxnarray[6].value : mxn.M7,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[7].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 8,
+              DblCantidad: mxn.M8 == null ? mxnarray[7].value : mxn.M8,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[8].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 9,
+              DblCantidad: mxn.M9 == null ? mxnarray[8].value : mxn.M9,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[9].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 10,
+              DblCantidad: mxn.M10 == null ? mxnarray[9].value : mxn.M10,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: mxnarray[10].id,
+              intIdMoneda: 2,
+              intIdDenominacion: 11,
+              DblCantidad: mxn.M11 == null ? mxnarray[10].value : mxn.M11,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+          ]
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -1295,118 +1326,121 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Editar", [
-          {
-            LngIdArqueoCentenas: euarray[0].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 1,
-            DblCantidad: eu.E1 == null ? euarray[0].value : eu.E1,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[1].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 2,
-            DblCantidad: eu.E2 == null ? euarray[1].value : eu.E2,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[2].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 3,
-            DblCantidad: eu.E3 == null ? euarray[2].value : eu.E3,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[3].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 4,
-            DblCantidad: eu.E4 == null ? euarray[3].value : eu.E4,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[4].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 5,
-            DblCantidad: eu.E5 == null ? euarray[4].value : eu.E5,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[5].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 6,
-            DblCantidad: eu.E6 == null ? euarray[5].value : eu.E6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[6].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 7,
-            DblCantidad: eu.E7 == null ? euarray[6].value : eu.E7,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[7].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 8,
-            DblCantidad: eu.E8 == null ? euarray[7].value : eu.E8,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[8].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 9,
-            DblCantidad: eu.E9 == null ? euarray[8].value : eu.E9,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[9].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 10,
-            DblCantidad: eu.E10 == null ? euarray[9].value : eu.E10,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: euarray[10].id,
-            intIdMoneda: 3,
-            intIdDenominacion: 11,
-            DblCantidad: eu.E11 == null ? euarray[10].value : eu.E11,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-        ])
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Editar",
+          [
+            {
+              LngIdArqueoCentenas: euarray[0].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 1,
+              DblCantidad: eu.E1 == null ? euarray[0].value : eu.E1,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[1].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 2,
+              DblCantidad: eu.E2 == null ? euarray[1].value : eu.E2,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[2].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 3,
+              DblCantidad: eu.E3 == null ? euarray[2].value : eu.E3,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[3].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 4,
+              DblCantidad: eu.E4 == null ? euarray[3].value : eu.E4,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[4].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 5,
+              DblCantidad: eu.E5 == null ? euarray[4].value : eu.E5,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[5].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 6,
+              DblCantidad: eu.E6 == null ? euarray[5].value : eu.E6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[6].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 7,
+              DblCantidad: eu.E7 == null ? euarray[6].value : eu.E7,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[7].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 8,
+              DblCantidad: eu.E8 == null ? euarray[7].value : eu.E8,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[8].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 9,
+              DblCantidad: eu.E9 == null ? euarray[8].value : eu.E9,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[9].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 10,
+              DblCantidad: eu.E10 == null ? euarray[9].value : eu.E10,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: euarray[10].id,
+              intIdMoneda: 3,
+              intIdDenominacion: 11,
+              DblCantidad: eu.E11 == null ? euarray[10].value : eu.E11,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+          ]
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -1415,118 +1449,121 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Editar", [
-          {
-            LngIdArqueoCentenas: dnsarray[0].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 1,
-            DblCantidad: dns.C1 == null ? dnsarray[0].value : dns.C1,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[1].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 2,
-            DblCantidad: dns.C2 == null ? dnsarray[1].value : dns.C2,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[2].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 3,
-            DblCantidad: dns.C3 == null ? dnsarray[2].value : dns.C3,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[3].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 4,
-            DblCantidad: dns.C4 == null ? dnsarray[3].value : dns.C4,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[4].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 5,
-            DblCantidad: dns.C5 == null ? dnsarray[4].value : dns.C5,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[5].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 6,
-            DblCantidad: dns.C6 == null ? dnsarray[5].value : dns.C6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[6].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 7,
-            DblCantidad: dns.C7 == null ? dnsarray[6].value : dns.C6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[7].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 8,
-            DblCantidad: dns.C8 == null ? dnsarray[7].value : dns.C8,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[8].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 9,
-            DblCantidad: dns.C9 == null ? dnsarray[8].value : dns.C9,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[9].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 10,
-            DblCantidad: dns.C10 == null ? dnsarray[9].value : dns.C10,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: dnsarray[10].id,
-            intIdMoneda: 4,
-            intIdDenominacion: 11,
-            DblCantidad: dns.C11 == null ? dnsarray[10].value : dns.C11,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-        ])
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Editar",
+          [
+            {
+              LngIdArqueoCentenas: dnsarray[0].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 1,
+              DblCantidad: dns.C1 == null ? dnsarray[0].value : dns.C1,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[1].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 2,
+              DblCantidad: dns.C2 == null ? dnsarray[1].value : dns.C2,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[2].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 3,
+              DblCantidad: dns.C3 == null ? dnsarray[2].value : dns.C3,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[3].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 4,
+              DblCantidad: dns.C4 == null ? dnsarray[3].value : dns.C4,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[4].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 5,
+              DblCantidad: dns.C5 == null ? dnsarray[4].value : dns.C5,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[5].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 6,
+              DblCantidad: dns.C6 == null ? dnsarray[5].value : dns.C6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[6].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 7,
+              DblCantidad: dns.C7 == null ? dnsarray[6].value : dns.C6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[7].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 8,
+              DblCantidad: dns.C8 == null ? dnsarray[7].value : dns.C8,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[8].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 9,
+              DblCantidad: dns.C9 == null ? dnsarray[8].value : dns.C9,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[9].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 10,
+              DblCantidad: dns.C10 == null ? dnsarray[9].value : dns.C10,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: dnsarray[10].id,
+              intIdMoneda: 4,
+              intIdDenominacion: 11,
+              DblCantidad: dns.C11 == null ? dnsarray[10].value : dns.C11,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+          ]
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -1535,118 +1572,121 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Editar", [
-          {
-            LngIdArqueoCentenas: lbarray[0].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 1,
-            DblCantidad: lb.L1 == null ? lbarray[0].value : lb.L1,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[1].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 2,
-            DblCantidad: lb.L2 == null ? lbarray[1].value : lb.L2,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[2].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 3,
-            DblCantidad: lb.L3 == null ? lbarray[2].value : lb.L3,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[3].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 4,
-            DblCantidad: lb.L4 == null ? lbarray[3].value : lb.L4,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[4].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 5,
-            DblCantidad: lb.L5 == null ? lbarray[4].value : lb.L5,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[5].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 6,
-            DblCantidad: lb.L6 == null ? lbarray[5].value : lb.L6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[6].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 7,
-            DblCantidad: lb.L7 == null ? lbarray[6].value : lb.L7,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[7].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 8,
-            DblCantidad: lb.L8 == null ? lbarray[7].value : lb.L8,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[8].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 9,
-            DblCantidad: lb.L9 == null ? lbarray[8].value : lb.L9,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[9].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 10,
-            DblCantidad: lb.L10 == null ? lbarray[9].value : lb.L10,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: lbarray[10].id,
-            intIdMoneda: 5,
-            intIdDenominacion: 11,
-            DblCantidad: lb.L11 == null ? lbarray[10].value : lb.L11,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-        ])
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Editar",
+          [
+            {
+              LngIdArqueoCentenas: lbarray[0].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 1,
+              DblCantidad: lb.L1 == null ? lbarray[0].value : lb.L1,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[1].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 2,
+              DblCantidad: lb.L2 == null ? lbarray[1].value : lb.L2,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[2].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 3,
+              DblCantidad: lb.L3 == null ? lbarray[2].value : lb.L3,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[3].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 4,
+              DblCantidad: lb.L4 == null ? lbarray[3].value : lb.L4,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[4].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 5,
+              DblCantidad: lb.L5 == null ? lbarray[4].value : lb.L5,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[5].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 6,
+              DblCantidad: lb.L6 == null ? lbarray[5].value : lb.L6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[6].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 7,
+              DblCantidad: lb.L7 == null ? lbarray[6].value : lb.L7,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[7].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 8,
+              DblCantidad: lb.L8 == null ? lbarray[7].value : lb.L8,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[8].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 9,
+              DblCantidad: lb.L9 == null ? lbarray[8].value : lb.L9,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[9].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 10,
+              DblCantidad: lb.L10 == null ? lbarray[9].value : lb.L10,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: lbarray[10].id,
+              intIdMoneda: 5,
+              intIdDenominacion: 11,
+              DblCantidad: lb.L11 == null ? lbarray[10].value : lb.L11,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+          ]
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -1655,118 +1695,121 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Editar", [
-          {
-            LngIdArqueoCentenas: fsarray[0].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 1,
-            DblCantidad: fs.F1 == null ? fsarray[0].value : fs.F1,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[1].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 2,
-            DblCantidad: fs.F2 == null ? fsarray[1].value : fs.F2,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[2].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 3,
-            DblCantidad: fs.F3 == null ? fsarray[2].value : fs.F3,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[3].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 4,
-            DblCantidad: fs.F4 == null ? fsarray[3].value : fs.F4,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[4].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 5,
-            DblCantidad: fs.F5 == null ? fsarray[4].value : fs.F5,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[5].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 6,
-            DblCantidad: fs.F6 == null ? fsarray[5].value : fs.F6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[6].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 7,
-            DblCantidad: fs.F7 == null ? fsarray[6].value : fs.F7,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[7].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 8,
-            DblCantidad: fs.F8 == null ? fsarray[7].value : fs.F8,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[8].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 9,
-            DblCantidad: fs.F9 == null ? fsarray[8].value : fs.F9,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[9].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 10,
-            DblCantidad: fs.F10 == null ? fsarray[9].value : fs.F10,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: fsarray[10].id,
-            intIdMoneda: 6,
-            intIdDenominacion: 11,
-            DblCantidad: fs.F11 == null ? fsarray[10].value : fs.F11,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-        ])
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Editar",
+          [
+            {
+              LngIdArqueoCentenas: fsarray[0].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 1,
+              DblCantidad: fs.F1 == null ? fsarray[0].value : fs.F1,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[1].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 2,
+              DblCantidad: fs.F2 == null ? fsarray[1].value : fs.F2,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[2].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 3,
+              DblCantidad: fs.F3 == null ? fsarray[2].value : fs.F3,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[3].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 4,
+              DblCantidad: fs.F4 == null ? fsarray[3].value : fs.F4,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[4].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 5,
+              DblCantidad: fs.F5 == null ? fsarray[4].value : fs.F5,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[5].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 6,
+              DblCantidad: fs.F6 == null ? fsarray[5].value : fs.F6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[6].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 7,
+              DblCantidad: fs.F7 == null ? fsarray[6].value : fs.F7,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[7].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 8,
+              DblCantidad: fs.F8 == null ? fsarray[7].value : fs.F8,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[8].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 9,
+              DblCantidad: fs.F9 == null ? fsarray[8].value : fs.F9,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[9].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 10,
+              DblCantidad: fs.F10 == null ? fsarray[9].value : fs.F10,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: fsarray[10].id,
+              intIdMoneda: 6,
+              intIdDenominacion: 11,
+              DblCantidad: fs.F11 == null ? fsarray[10].value : fs.F11,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+          ]
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -1775,118 +1818,121 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Editar", [
-          {
-            LngIdArqueoCentenas: rlsarray[0].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 1,
-            DblCantidad: rls.R1 == null ? rlsarray[0].value : rls.R1,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[1].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 2,
-            DblCantidad: rls.R2 == null ? rlsarray[1].value : rls.R2,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[2].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 3,
-            DblCantidad: rls.R3 == null ? rlsarray[2].value : rls.R3,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[3].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 4,
-            DblCantidad: rls.R4 == null ? rlsarray[3].value : rls.R4,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[4].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 5,
-            DblCantidad: rls.R5 == null ? rlsarray[4].value : rls.R5,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[5].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 6,
-            DblCantidad: rls.R6 == null ? rlsarray[5].value : rls.R6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[6].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 7,
-            DblCantidad: rls.R7 == null ? rlsarray[6].value : rls.R7,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[7].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 8,
-            DblCantidad: rls.R8 == null ? rlsarray[7].value : rls.R8,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[8].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 9,
-            DblCantidad: rls.R9 == null ? rlsarray[8].value : rls.R9,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[9].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 10,
-            DblCantidad: rls.R10 == null ? rlsarray[9].value : rls.R10,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: rlsarray[10].id,
-            intIdMoneda: 7,
-            intIdDenominacion: 11,
-            DblCantidad: rls.R11 == null ? rlsarray[10].value : rls.R11,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-        ])
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Editar",
+          [
+            {
+              LngIdArqueoCentenas: rlsarray[0].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 1,
+              DblCantidad: rls.R1 == null ? rlsarray[0].value : rls.R1,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[1].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 2,
+              DblCantidad: rls.R2 == null ? rlsarray[1].value : rls.R2,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[2].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 3,
+              DblCantidad: rls.R3 == null ? rlsarray[2].value : rls.R3,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[3].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 4,
+              DblCantidad: rls.R4 == null ? rlsarray[3].value : rls.R4,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[4].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 5,
+              DblCantidad: rls.R5 == null ? rlsarray[4].value : rls.R5,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[5].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 6,
+              DblCantidad: rls.R6 == null ? rlsarray[5].value : rls.R6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[6].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 7,
+              DblCantidad: rls.R7 == null ? rlsarray[6].value : rls.R7,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[7].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 8,
+              DblCantidad: rls.R8 == null ? rlsarray[7].value : rls.R8,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[8].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 9,
+              DblCantidad: rls.R9 == null ? rlsarray[8].value : rls.R9,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[9].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 10,
+              DblCantidad: rls.R10 == null ? rlsarray[9].value : rls.R10,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: rlsarray[10].id,
+              intIdMoneda: 7,
+              intIdDenominacion: 11,
+              DblCantidad: rls.R11 == null ? rlsarray[10].value : rls.R11,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+          ]
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -1895,127 +1941,134 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentena/Editar", [
-          {
-            LngIdArqueoCentenas: ausarray[0].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 1,
-            DblCantidad: aus.A1 == null ? ausarray[0].value : aus.A1,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[1].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 2,
-            DblCantidad: aus.A2 == null ? ausarray[1].value : aus.A2,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[2].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 3,
-            DblCantidad: aus.A3 == null ? ausarray[2].value : aus.A3,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[3].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 4,
-            DblCantidad: aus.A4 == null ? ausarray[3].value : aus.A4,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[4].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 5,
-            DblCantidad: aus.A5 == null ? ausarray[4].value : aus.A5,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[5].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 6,
-            DblCantidad: aus.A6 == null ? ausarray[5].value : aus.A6,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[6].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 7,
-            DblCantidad: aus.A7 == null ? ausarray[6].value : aus.A7,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[7].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 8,
-            DblCantidad: aus.A8 == null ? ausarray[7].value : aus.A8,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[8].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 9,
-            DblCantidad: aus.A9 == null ? ausarray[8].value : aus.A9,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[9].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 10,
-            DblCantidad: aus.A10 == null ? ausarray[9].value : aus.A10,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-          {
-            LngIdArqueoCentenas: ausarray[10].id,
-            intIdMoneda: 8,
-            intIdDenominacion: 11,
-            DblCantidad: aus.A11 == null ? ausarray[10].value : aus.A11,
-            fecDia: fecha.toLocaleDateString,
-            bolCongelar: false,
-            intIdStatus: 0,
-            lngIdRegistro: lngIdRegistro,
-          },
-        ])
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Editar",
+          [
+            {
+              LngIdArqueoCentenas: ausarray[0].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 1,
+              DblCantidad: aus.A1 == null ? ausarray[0].value : aus.A1,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[1].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 2,
+              DblCantidad: aus.A2 == null ? ausarray[1].value : aus.A2,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[2].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 3,
+              DblCantidad: aus.A3 == null ? ausarray[2].value : aus.A3,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[3].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 4,
+              DblCantidad: aus.A4 == null ? ausarray[3].value : aus.A4,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[4].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 5,
+              DblCantidad: aus.A5 == null ? ausarray[4].value : aus.A5,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[5].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 6,
+              DblCantidad: aus.A6 == null ? ausarray[5].value : aus.A6,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[6].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 7,
+              DblCantidad: aus.A7 == null ? ausarray[6].value : aus.A7,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[7].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 8,
+              DblCantidad: aus.A8 == null ? ausarray[7].value : aus.A8,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[8].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 9,
+              DblCantidad: aus.A9 == null ? ausarray[8].value : aus.A9,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[9].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 10,
+              DblCantidad: aus.A10 == null ? ausarray[9].value : aus.A10,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+            {
+              LngIdArqueoCentenas: ausarray[10].id,
+              intIdMoneda: 8,
+              intIdDenominacion: 11,
+              DblCantidad: aus.A11 == null ? ausarray[10].value : aus.A11,
+              fecDia: fecha.toLocaleDateString,
+              bolCongelar: false,
+              intIdStatus: 0,
+              lngIdRegistro: lngIdRegistro,
+            },
+          ]
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
         .then(function (error) {
           console.log(error);
         });
+      handleClick();
     } else {
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Crear", postusd)
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Crear",
+          postusd
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -2024,7 +2077,10 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Crear", postmxn)
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Crear",
+          postmxn
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -2033,7 +2089,10 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Crear", posteu)
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Crear",
+          posteu
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -2042,7 +2101,10 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Crear", postdns)
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Crear",
+          postdns
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -2051,7 +2113,10 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Crear", postlb)
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Crear",
+          postlb
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -2069,7 +2134,10 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Crear", postrls)
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Crear",
+          postrls
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -2078,7 +2146,10 @@ function Arquecentenas(props) {
         });
 
       axios
-        .post("https://localhost:44346/api/TbArqueoCentenas/Crear", postaus)
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Crear",
+          postaus
+        )
         .then(function (respuesta) {
           console.log(respuesta);
         })
@@ -2095,12 +2166,15 @@ function Arquecentenas(props) {
       obtregistro();
     } else {
       axios
-        .post("https://localhost:44346/api/RegistroArqueos/Crear", {
-          txtRegistro: "registro11",
-          intIdEmpresa: window.sessionStorage.getItem("idempresa"),
-          intIdPlaza: window.sessionStorage.getItem("idplaza"),
-          intIdUsuario: window.sessionStorage.getItem("idusuario"),
-        })
+        .post(
+          "https://syscriptoapi.azurewebsites.net/api/RegistroArqueos/Crear",
+          {
+            txtRegistro: "registro11",
+            intIdEmpresa: window.sessionStorage.getItem("idempresa"),
+            intIdPlaza: window.sessionStorage.getItem("idplaza"),
+            intIdUsuario: window.sessionStorage.getItem("idusuario"),
+          }
+        )
         .then(function (respuesta) {
           if (respuesta !== null) {
             setregistro(respuesta.data.data.lngIdRegistro);
@@ -2117,7 +2191,7 @@ function Arquecentenas(props) {
     if (status === 2) {
       axios
         .post(
-          "https://localhost:44346/api/TbArqueoCentenas/Obtenervalores?lngidregistro=" +
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Sumatoria?lngidregistro=" +
             lngIdRegistro +
             ""
         )
@@ -2130,7 +2204,7 @@ function Arquecentenas(props) {
 
       axios
         .post(
-          "https://localhost:44346/api/TbArqueoCentenas/Totales?lngidregistro=" +
+          "https://syscriptoapi.azurewebsites.net/api/TbArqueoCentenas/Totales?lngidregistro=" +
             lngIdRegistro +
             ""
         )
@@ -2672,7 +2746,7 @@ function Arquecentenas(props) {
         if (element.intIdDenominacion === 10) {
           setfs({ F10: element.dblCantidad });
           fsarray.push({
-            id: element.lngIdArqueoUnidades,
+            id: element.lngIdArqueoCentenas,
             value: element.dblCantidad,
           });
         }
@@ -3825,6 +3899,12 @@ function Arquecentenas(props) {
           </form>
         </div>
       </div>
+
+      <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+        <Alert variant="filled" severity="success">
+          Los datos han sido guardados
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

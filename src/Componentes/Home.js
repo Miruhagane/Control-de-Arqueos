@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
+import Arqueounidades from "./Padreunidades.js";
 
 import Menu from "./Menu.js";
 
@@ -8,7 +9,7 @@ let api = "https://syscriptoapi.azurewebsites.net/api/";
 function Home() {
   const postregistro = (idregistro) => {
     axios
-      .post("https://localhost:44346/api/TbArqueoUnidades/Crear", [
+      .post(api + "TbArqueoUnidades/Crear", [
         {
           intIdMoneda: 1,
           intIdDenominacion: 1,
@@ -106,7 +107,7 @@ function Home() {
       });
 
     axios
-      .post("https://localhost:44346/api/TbArqueoUnidades/Crear", [
+      .post(api + "TbArqueoUnidades/Crear", [
         {
           intIdMoneda: 2,
           intIdDenominacion: 1,
@@ -215,7 +216,7 @@ function Home() {
       });
 
     axios
-      .post("https://localhost:44346/api/TbArqueoUnidades/Crear", [
+      .post(api + "TbArqueoUnidades/Crear", [
         {
           intIdMoneda: 3,
           intIdDenominacion: 1,
@@ -324,7 +325,7 @@ function Home() {
       });
 
     axios
-      .post("https://localhost:44346/api/TbArqueoUnidades/Crear", [
+      .post(api + "TbArqueoUnidades/Crear", [
         {
           intIdMoneda: 4,
           intIdDenominacion: 1,
@@ -433,7 +434,7 @@ function Home() {
       });
 
     axios
-      .post("https://localhost:44346/api/TbArqueoUnidades/Crear", [
+      .post(api + "TbArqueoUnidades/Crear", [
         {
           intIdMoneda: 5,
           intIdDenominacion: 1,
@@ -542,7 +543,7 @@ function Home() {
       });
 
     axios
-      .post("https://localhost:44346/api/TbArqueoUnidades/Crear", [
+      .post(api + "TbArqueoUnidades/Crear", [
         {
           intIdMoneda: 6,
           intIdDenominacion: 1,
@@ -651,7 +652,7 @@ function Home() {
       });
 
     axios
-      .post("https://localhost:44346/api/TbArqueoUnidades/Crear", [
+      .post(api + "TbArqueoUnidades/Crear", [
         {
           intIdMoneda: 7,
           intIdDenominacion: 1,
@@ -749,7 +750,846 @@ function Home() {
       });
 
     axios
-      .post("https://localhost:44346/api/TbArqueoUnidades/Crear", [
+      .post(api + "TbArqueoUnidades/Crear", [
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 1,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 2,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 3,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 4,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 5,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 6,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 7,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 8,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 9,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 10,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 8,
+          intIdDenominacion: 11,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+      ])
+      .then(function (respuesta) {
+        console.log(respuesta);
+      })
+      .then(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .post(api + "/TbArqueoCentenas/Crear", [
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 1,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 2,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 3,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 4,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 5,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 6,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 7,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 8,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 9,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 10,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 1,
+          intIdDenominacion: 11,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          LngIdRegistro: idregistro,
+        },
+      ])
+      .then(function (respuesta) {
+        console.log(respuesta);
+      })
+      .then(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .post(api + "/TbArqueoCentenas/Crear", [
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 1,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 2,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 3,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 4,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 5,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 6,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 7,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 8,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 9,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 10,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 2,
+          intIdDenominacion: 11,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+      ])
+      .then(function (respuesta) {
+        console.log(respuesta);
+      })
+      .then(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .post(api + "/TbArqueoCentenas/Crear", [
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 1,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 2,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 3,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 4,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 5,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 6,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 7,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 8,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 9,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 10,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 3,
+          intIdDenominacion: 11,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+      ])
+      .then(function (respuesta) {
+        console.log(respuesta);
+      })
+      .then(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .post(api + "/TbArqueoCentenas/Crear", [
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 1,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 2,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 3,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 4,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 5,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 6,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 7,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 8,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 9,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 10,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 4,
+          intIdDenominacion: 11,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+      ])
+      .then(function (respuesta) {
+        console.log(respuesta);
+      })
+      .then(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .post(api + "/TbArqueoCentenas/Crear", [
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 1,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 2,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 3,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 4,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 5,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 6,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 7,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 8,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 9,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 10,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 5,
+          intIdDenominacion: 11,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+      ])
+      .then(function (respuesta) {
+        console.log(respuesta);
+      })
+      .then(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .post(api + "/TbArqueoCentenas/Crear", [
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 1,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 2,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 3,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 4,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 5,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 6,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 7,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 8,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 9,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 10,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 6,
+          intIdDenominacion: 11,
+          dblCantidad: 0,
+
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+      ])
+      .then(function (respuesta) {
+        console.log(respuesta);
+      })
+      .then(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .post(api + "/TbArqueoCentenas/Crear", [
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 1,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 2,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 3,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 4,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 5,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 6,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 7,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 8,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 9,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 10,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+        {
+          intIdMoneda: 7,
+          intIdDenominacion: 11,
+          dblCantidad: 0,
+          bolCongelar: false,
+          intIdStatus: 0,
+          lngIdRegistro: idregistro,
+        },
+      ])
+      .then(function (respuesta) {
+        console.log(respuesta);
+      })
+      .then(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .post(api + "/TbArqueoCentenas/Crear", [
         {
           intIdMoneda: 8,
           intIdDenominacion: 1,
@@ -882,7 +1722,7 @@ function Home() {
   return (
     <div>
       {" "}
-      <Menu />{" "}
+      <Arqueounidades />{" "}
     </div>
   );
 }
